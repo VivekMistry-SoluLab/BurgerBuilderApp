@@ -24,7 +24,9 @@ class BurgerBuilder extends Component {
         purchasable: false,
         purchasing: false,
         loading: false,
-        error: false
+        error: false,
+        //DEFINE STATE FOR VISIBILITY OF BURGER COMPONENT
+        // visible: false
     }
 
     componentDidMount () {
@@ -113,7 +115,13 @@ class BurgerBuilder extends Component {
         if(this.state.ingredients){
             burger = (
                 <Auxx>
-                    <Burger ingredients={this.state.ingredients} />
+                <Burger ingredients={this.state.ingredients}/>
+
+                {/* BELOW 2 LINE CODE FOR VISIBILITY OF BURGER WHEN CLICK ON THE BUTTON */}
+                    {/* {this.state.visible ? <Burger ingredients={this.state.ingredients} /> : null }
+                    <button onClick={() => this.setState({visible:true})} style={{margin:'auto', display: 'flex'}} >show</button> */}
+
+
                     <BuildControls
                         ingredientAdded={this.addIngredientHandler}
                         ingredientRemoved={this.removeIngredientHandler}
