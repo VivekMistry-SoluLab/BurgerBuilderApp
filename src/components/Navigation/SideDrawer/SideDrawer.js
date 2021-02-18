@@ -5,27 +5,24 @@ import classes from './SideDrawer.css';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 import Auxx from '../../../hoc/Auxx/Auxx';
 
-const SideDrawer = ( props ) => {
+const sideDrawer = ( props ) => {
     let attachedClasses = [classes.SideDrawer, classes.Close];
     if (props.open) {
         attachedClasses = [classes.SideDrawer, classes.Open];
     }
     return (
         <Auxx>
-            <Backdrop 
-                show={props.open} 
-                clicked={props.closed}
-            />
+            <Backdrop show={props.open} clicked={props.closed}/>
             <div className={attachedClasses.join(' ')}>
                 <div className={classes.Logo}>
                     <Logo />
                 </div>
                 <nav>
-                    <NavigationItems />
+                    <NavigationItems isAuthenticated={props.isAuth} />
                 </nav>
             </div>
         </Auxx>
     );
 };
 
-export default SideDrawer;
+export default sideDrawer;
